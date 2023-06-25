@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 // import '1.0.2_restore_password.dart';
-import '1.5_main_online_entry.dart';
+// import '1.5_main_online_entry.dart';
 
 // 1.0.1 - При нажатии кнопки войти
 class EntryClick extends StatefulWidget {

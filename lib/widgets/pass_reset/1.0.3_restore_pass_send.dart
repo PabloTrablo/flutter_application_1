@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '1.0.1_click_entry.dart';
+import '../auth/1.0.1_click_entry.dart';
 
 // 1.0.3 - При нажатии кнопки "Восстановить"
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/widgets/1.0.1_click_entry.dart';
-import '1.2_registrate_frame.dart';
+import 'package:flutter_application_1/widgets/auth/1.0.1_click_entry.dart';
+import 'registrate/1.2_registrate_frame.dart';
 
 // Фрейм "Стартовый экран 1.0"
 

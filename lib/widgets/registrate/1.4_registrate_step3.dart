@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/widgets/1.4_registrate_step3.dart';
+import '../1.5_main_online_entry.dart';
 
-// Фрейм 1.3 "При нажатии Следующий шаг"
+// Фрейм 1.4 "При нажатии Следующий шаг"
 
-class RegistrateStp2 extends StatelessWidget {
-  const RegistrateStp2({Key? key}) : super(key: key);
+class RegistrateStp3 extends StatelessWidget {
+  const RegistrateStp3({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,16 +40,14 @@ class RegistrateStp2 extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(height: 50),
-                _TextContactDetails(), //  Надпись "Контактные данные"
+                _CreateNewPassText(), //  Надпись "Задайте пароль"
                 SizedBox(height: 20),
-                _EnterPhone(), //  Поле ввода - Телефон
+                _CreatePass(), //  Поле ввода - Пароль
                 SizedBox(height: 10),
-                _EnterMail(), //  Поле ввода - Почта
+                _VerifyPass(), //  Поле ввода - Подтвердите пароль
                 SizedBox(height: 10),
-                _EnterAdress(), //  Поле ввода - Адрес
-                SizedBox(height: 10),
-                SizedBox(height: 350),
-                _ButtonLastStep2(), // Кнопка - Следующий шаг
+                SizedBox(height: 410),
+                _ButtonLastStep3(), // Кнопка Зарегистрироваться
               ],
             ),
           ),
@@ -59,14 +57,14 @@ class RegistrateStp2 extends StatelessWidget {
   }
 }
 
-// Функция-текст "Контактные данные"
-class _TextContactDetails extends StatelessWidget {
-  const _TextContactDetails({Key? key}) : super(key: key);
+// Функция текст "Задайте пароль"
+class _CreateNewPassText extends StatelessWidget {
+  const _CreateNewPassText({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return const Text(
-      'Контактные данные',
+      'Задайте пароль',
       style: TextStyle(
         fontFamily: 'Futura',
         fontWeight: FontWeight.w600,
@@ -77,9 +75,9 @@ class _TextContactDetails extends StatelessWidget {
   }
 }
 
-// Функция поле ввода телефона
-class _EnterPhone extends StatelessWidget {
-  const _EnterPhone({Key? key}) : super(key: key);
+// Функция поле ввода "Пароль"
+class _CreatePass extends StatelessWidget {
+  const _CreatePass({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +95,7 @@ class _EnterPhone extends StatelessWidget {
             color: Color.fromRGBO(123, 133, 167, 1),
             fontFamily: 'Futura',
           ),
-          hintText: 'Телефон',
+          hintText: 'Пароль',
           border: InputBorder.none,
           contentPadding:
               EdgeInsets.only(left: 16, top: 13.5, right: 16, bottom: 13.5),
@@ -107,9 +105,9 @@ class _EnterPhone extends StatelessWidget {
   }
 }
 
-// Функция поле ввода электронной почты
-class _EnterMail extends StatelessWidget {
-  const _EnterMail({Key? key}) : super(key: key);
+// Функция поле ввода "Подтвердите пароль"
+class _VerifyPass extends StatelessWidget {
+  const _VerifyPass({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -127,7 +125,7 @@ class _EnterMail extends StatelessWidget {
             color: Color.fromRGBO(123, 133, 167, 1),
             fontFamily: 'Futura',
           ),
-          hintText: 'Почта',
+          hintText: 'Подтвердите пароль',
           border: InputBorder.none,
           contentPadding:
               EdgeInsets.only(left: 16, top: 13.5, right: 16, bottom: 13.5),
@@ -137,39 +135,9 @@ class _EnterMail extends StatelessWidget {
   }
 }
 
-// Функция поле ввода адреса
-class _EnterAdress extends StatelessWidget {
-  const _EnterAdress({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 355,
-      height: 48,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(50),
-        color: const Color.fromRGBO(230, 235, 255, 1),
-      ),
-      child: const TextField(
-        decoration: InputDecoration(
-          hintStyle: TextStyle(
-            fontSize: 16,
-            color: Color.fromRGBO(123, 133, 167, 1),
-            fontFamily: 'Futura',
-          ),
-          hintText: 'Адрес (по желанию)',
-          border: InputBorder.none,
-          contentPadding:
-              EdgeInsets.only(left: 16, top: 13.5, right: 16, bottom: 13.5),
-        ),
-      ),
-    );
-  }
-}
-
-// Функция кнопка "Следующий шаг" с переходом
-class _ButtonLastStep2 extends StatelessWidget {
-  const _ButtonLastStep2({Key? key}) : super(key: key);
+// Функция кнопка "Зарегистрироваться" с переходом
+class _ButtonLastStep3 extends StatelessWidget {
+  const _ButtonLastStep3({Key? key}) : super(key: key);
 
   get elevation => null;
 
@@ -196,13 +164,13 @@ class _ButtonLastStep2 extends StatelessWidget {
             fontWeight: FontWeight.w500,
             color: Color.fromRGBO(16, 35, 100, 1),
           ),
-          'Следующий шаг'),
+          'Зарегистрироваться'),
       onPressed: () {
         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) =>
-                const RegistrateStp3(), // Переход к следующему этапу регистрации
+                const MainFrameCategory(), // Переход в главное меню
           ),
         );
       },

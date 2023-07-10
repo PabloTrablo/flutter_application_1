@@ -9,6 +9,16 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color.fromRGBO(255, 255, 255, 1),
+        ),
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+            selectedItemColor: Color.fromRGBO(29, 58, 161, 1),
+            unselectedItemColor: Color.fromRGBO(108, 130, 209, 1),
+            backgroundColor: Color.fromRGBO(255, 255, 255, 1)),
+      ),
+
       initialRoute: '/auth', // Начальная страница при запуске
       routes: {
         '/auth': (context) => const SarafanMainScreen(),

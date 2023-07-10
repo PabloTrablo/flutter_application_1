@@ -1,14 +1,55 @@
 import 'package:flutter/material.dart';
-import '1.2_registrate_frame.dart';
+import 'categories/1.6_service_frame.dart';
 
+// 1.5 Фрейм главного экрана с категориями услуг
 class MainFrameCategory extends StatefulWidget {
   const MainFrameCategory({Key? key}) : super(key: key);
 
   @override
-  _MainFrameCategory createState() => _MainFrameCategory();
+  _MainFrameCategoryState createState() => _MainFrameCategoryState();
 }
 
-class _MainFrameCategory extends State<MainFrameCategory> {
+class subCatBuilder extends StatefulWidget {
+  subCatBuilder({Key? key}) : super(key: key);
+
+  @override
+  State<subCatBuilder> createState() => subCatBuilderState();
+}
+
+class subCatBuilderState extends State<subCatBuilder> {
+  // Попытка в тестовый список для 1.6
+  List subCatList = [
+    ['subCat_1'],
+    ['subCat_2'],
+    ['subCat_3'],
+    ['subCat_4'],
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        // Функция подгрузки списка, кривая не работает
+        body: ListView.builder(
+            itemCount: subCatList.length,
+            itemBuilder: ((context, index) {
+              return ServiceFrame(
+                subCategory: subCatList[index][0],
+                titleCategory: 'Title_1',
+              );
+            })));
+  }
+}
+
+class _MainFrameCategoryState extends State<MainFrameCategory> {
+  int _selectedTab = 0;
+  // Функция выбора элемента по нажатию в панели навигации
+  void onSelectTab(int index) {
+    setState(() {
+      if (_selectedTab == index) return;
+      _selectedTab = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,8 +89,10 @@ class _MainFrameCategory extends State<MainFrameCategory> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) =>
-                                        const Registrate(), // Переход к странице регистрации 1
+                                    builder: (context) => const ServiceFrame(
+                                      titleCategory: 'Перманент',
+                                      subCategory: 'SubCategory',
+                                    ), // Переход к фрейму 1.6_1
                                   ),
                                 );
                               },
@@ -108,8 +151,10 @@ class _MainFrameCategory extends State<MainFrameCategory> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) =>
-                                        const Registrate(), // Переход к странице регистрации 1
+                                    builder: (context) => const ServiceFrame(
+                                        titleCategory: 'Паркимахер',
+                                        subCategory:
+                                            'SubCategory'), // Переход к фрейму 1.6_2
                                   ),
                                 );
                               },
@@ -168,8 +213,10 @@ class _MainFrameCategory extends State<MainFrameCategory> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) =>
-                                        const Registrate(), // Переход к странице регистрации 1
+                                    builder: (context) => const ServiceFrame(
+                                        titleCategory: 'Косметолог',
+                                        subCategory:
+                                            'SubCategory'), // Переход к фрейму 1.6_3
                                   ),
                                 );
                               },
@@ -228,8 +275,10 @@ class _MainFrameCategory extends State<MainFrameCategory> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) =>
-                                        const Registrate(), // Переход к странице регистрации 1
+                                    builder: (context) => const ServiceFrame(
+                                        titleCategory: 'Ногтевой сервис',
+                                        subCategory:
+                                            'SubCategory'), // Переход к фрейму 1.6_4
                                   ),
                                 );
                               },
@@ -288,8 +337,10 @@ class _MainFrameCategory extends State<MainFrameCategory> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) =>
-                                        const Registrate(), // Переход к странице регистрации 1
+                                    builder: (context) => const ServiceFrame(
+                                        titleCategory: 'Визаж',
+                                        subCategory:
+                                            'SubCategory'), // Переход к фрейму 1.6_5
                                   ),
                                 );
                               },
@@ -348,8 +399,10 @@ class _MainFrameCategory extends State<MainFrameCategory> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) =>
-                                        const Registrate(), // Переход к странице регистрации 1
+                                    builder: (context) => const ServiceFrame(
+                                        titleCategory: 'Ресницы/брови',
+                                        subCategory:
+                                            'SubCategory'), // Переход к фрейму 1.6_6
                                   ),
                                 );
                               },
@@ -408,8 +461,10 @@ class _MainFrameCategory extends State<MainFrameCategory> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) =>
-                                        const Registrate(), // Переход к странице регистрации 1
+                                    builder: (context) => const ServiceFrame(
+                                        titleCategory: 'Пирсинг',
+                                        subCategory:
+                                            'SubCategory'), // Переход к фрейму 1.6_7
                                   ),
                                 );
                               },
@@ -468,8 +523,10 @@ class _MainFrameCategory extends State<MainFrameCategory> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) =>
-                                        const Registrate(), // Переход к странице регистрации 1
+                                    builder: (context) => const ServiceFrame(
+                                        titleCategory: 'Эпиляция и депиляция',
+                                        subCategory:
+                                            'SubCategory'), // Переход к фрейму 1.6_8
                                   ),
                                 );
                               },
@@ -528,8 +585,10 @@ class _MainFrameCategory extends State<MainFrameCategory> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) =>
-                                        const Registrate(), // Переход к странице регистрации 1
+                                    builder: (context) => const ServiceFrame(
+                                        titleCategory: 'Массаж',
+                                        subCategory:
+                                            'SubCategory'), // Переход к фрейму 1.6_9
                                   ),
                                 );
                               },
@@ -588,8 +647,10 @@ class _MainFrameCategory extends State<MainFrameCategory> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) =>
-                                        const Registrate(), // Переход к странице регистрации 1
+                                    builder: (context) => const ServiceFrame(
+                                        titleCategory: 'Аппаратная',
+                                        subCategory:
+                                            'SubCategory'), // Переход к фрейму 1.6_10
                                   ),
                                 );
                               },
@@ -648,8 +709,10 @@ class _MainFrameCategory extends State<MainFrameCategory> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) =>
-                                        const Registrate(), // Переход к странице регистрации 1
+                                    builder: (context) => const ServiceFrame(
+                                        titleCategory: 'Тату',
+                                        subCategory:
+                                            'SubCategory'), // Переход к фрейму 1.6_11
                                   ),
                                 );
                               },
@@ -699,13 +762,6 @@ class _MainFrameCategory extends State<MainFrameCategory> {
                                               ))))
                                 ],
                               ))))),
-              Container(
-                  margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: const Text('HolyMoly',
-                        style: TextStyle(color: Colors.white)),
-                  ))
             ],
           ),
           const Center(
@@ -724,6 +780,7 @@ class _MainFrameCategory extends State<MainFrameCategory> {
                               fontSize: 18,
                             ),
                           ))))),
+          // Контейнер под данные записей на прием
           Container(
               padding: const EdgeInsets.all(5),
               decoration: BoxDecoration(
@@ -746,6 +803,7 @@ class _MainFrameCategory extends State<MainFrameCategory> {
                         ),
                       )))),
           const SizedBox(height: 10),
+          // Контейнер под данные записей на прием
           Container(
               padding: const EdgeInsets.all(5),
               decoration: BoxDecoration(
@@ -770,6 +828,43 @@ class _MainFrameCategory extends State<MainFrameCategory> {
           const SizedBox(height: 10),
         ]),
       ))),
+      // Панель навигации на странице клиента
+      bottomNavigationBar: SizedBox(
+        height: 70,
+        child: BottomNavigationBar(
+          selectedLabelStyle: const TextStyle(), //your text style
+          unselectedLabelStyle: const TextStyle(),
+          currentIndex: _selectedTab,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.pending_actions_rounded,
+              ),
+              label: 'Онлайн запись',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.thumb_up_off_alt_outlined,
+              ),
+              label: 'Бонусы',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.pie_chart,
+              ),
+              label: 'Партнеры',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.person_pin,
+              ),
+              label: 'Профиль',
+            ),
+          ],
+          // Вызов функции по нажатию на элемент навигации
+          onTap: onSelectTab,
+        ),
+      ),
     );
   }
 }

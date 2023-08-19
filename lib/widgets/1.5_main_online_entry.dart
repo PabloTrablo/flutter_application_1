@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'categories/1.6_service_frame.dart';
+import 'profile/client/1.5.1_client_profile.dart';
+import 'profile/client/1.6.9_get_feedback.dart';
 
 // 1.5 Фрейм главного экрана с категориями услуг
 class MainFrameCategory extends StatefulWidget {
@@ -9,36 +11,7 @@ class MainFrameCategory extends StatefulWidget {
   _MainFrameCategoryState createState() => _MainFrameCategoryState();
 }
 
-class subCatBuilder extends StatefulWidget {
-  subCatBuilder({Key? key}) : super(key: key);
-
-  @override
-  State<subCatBuilder> createState() => subCatBuilderState();
-}
-
-class subCatBuilderState extends State<subCatBuilder> {
-  // Попытка в тестовый список для 1.6
-  List subCatList = [
-    ['subCat_1'],
-    ['subCat_2'],
-    ['subCat_3'],
-    ['subCat_4'],
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        // Функция подгрузки списка, кривая не работает
-        body: ListView.builder(
-            itemCount: subCatList.length,
-            itemBuilder: ((context, index) {
-              return ServiceFrame(
-                subCategory: subCatList[index][0],
-                titleCategory: 'Title_1',
-              );
-            })));
-  }
-}
+final List<Widget> _navBarItems = [];
 
 class _MainFrameCategoryState extends State<MainFrameCategory> {
   int _selectedTab = 0;
@@ -57,10 +30,10 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
         // Функция заголовка
         automaticallyImplyLeading: false,
         titleTextStyle: const TextStyle(
-          color: Color.fromRGBO(16, 35, 100, 1),
-          fontWeight: FontWeight.w500,
-          fontSize: 18,
-        ),
+            color: Color.fromRGBO(16, 35, 100, 1),
+            fontWeight: FontWeight.w500,
+            fontSize: 18,
+            fontFamily: 'Futura'),
         elevation: 0,
         centerTitle: true,
         title: const Text('Онлайн запись'),
@@ -81,7 +54,7 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
             mainAxisSpacing: 1,
             children: <Widget>[
               Container(
-                  padding: const EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(8),
                   child: Center(
                       child: Material(
                           child: InkWell(
@@ -91,17 +64,19 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                   MaterialPageRoute(
                                     builder: (context) => const ServiceFrame(
                                       titleCategory: 'Перманент',
-                                      subCategory: 'SubCategory',
+                                      subCategory: 'SubCategory1',
                                     ), // Переход к фрейму 1.6_1
                                   ),
                                 );
                               },
                               child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
                                 children: [
                                   Expanded(
                                       child: Container(
                                           decoration: BoxDecoration(
                                             image: const DecorationImage(
+                                                fit: BoxFit.contain,
                                                 image: AssetImage(
                                                     'assets/icons/categories/1_permanent.png')),
                                             borderRadius:
@@ -143,7 +118,7 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                 ],
                               ))))),
               Container(
-                  padding: const EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(8),
                   child: Center(
                       child: Material(
                           child: InkWell(
@@ -152,9 +127,9 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => const ServiceFrame(
-                                        titleCategory: 'Паркимахер',
+                                        titleCategory: 'Парикмахер',
                                         subCategory:
-                                            'SubCategory'), // Переход к фрейму 1.6_2
+                                            'SubCategory2'), // Переход к фрейму 1.6_2
                                   ),
                                 );
                               },
@@ -164,6 +139,7 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                       child: Container(
                                           decoration: BoxDecoration(
                                             image: const DecorationImage(
+                                                fit: BoxFit.contain,
                                                 image: AssetImage(
                                                     'assets/icons/categories/2_hairdresser.png')),
                                             borderRadius:
@@ -205,7 +181,7 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                 ],
                               ))))),
               Container(
-                  padding: const EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(8),
                   child: Center(
                       child: Material(
                           child: InkWell(
@@ -216,7 +192,7 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                     builder: (context) => const ServiceFrame(
                                         titleCategory: 'Косметолог',
                                         subCategory:
-                                            'SubCategory'), // Переход к фрейму 1.6_3
+                                            'SubCategory3'), // Переход к фрейму 1.6_3
                                   ),
                                 );
                               },
@@ -226,6 +202,7 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                       child: Container(
                                           decoration: BoxDecoration(
                                             image: const DecorationImage(
+                                                fit: BoxFit.contain,
                                                 image: AssetImage(
                                                     'assets/icons/categories/3_cosmetolog.png')),
                                             borderRadius:
@@ -267,7 +244,7 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                 ],
                               ))))),
               Container(
-                  padding: const EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(8),
                   child: Center(
                       child: Material(
                           child: InkWell(
@@ -278,7 +255,7 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                     builder: (context) => const ServiceFrame(
                                         titleCategory: 'Ногтевой сервис',
                                         subCategory:
-                                            'SubCategory'), // Переход к фрейму 1.6_4
+                                            'SubCategory4'), // Переход к фрейму 1.6_4
                                   ),
                                 );
                               },
@@ -288,6 +265,7 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                       child: Container(
                                           decoration: BoxDecoration(
                                             image: const DecorationImage(
+                                                fit: BoxFit.contain,
                                                 image: AssetImage(
                                                     'assets/icons/categories/4_nails_service.png')),
                                             borderRadius:
@@ -329,7 +307,7 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                 ],
                               ))))),
               Container(
-                  padding: const EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(8),
                   child: Center(
                       child: Material(
                           child: InkWell(
@@ -340,7 +318,7 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                     builder: (context) => const ServiceFrame(
                                         titleCategory: 'Визаж',
                                         subCategory:
-                                            'SubCategory'), // Переход к фрейму 1.6_5
+                                            'SubCategory5'), // Переход к фрейму 1.6_5
                                   ),
                                 );
                               },
@@ -350,6 +328,7 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                       child: Container(
                                           decoration: BoxDecoration(
                                             image: const DecorationImage(
+                                                fit: BoxFit.contain,
                                                 image: AssetImage(
                                                     'assets/icons/categories/5_makeup.png')),
                                             borderRadius:
@@ -391,7 +370,7 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                 ],
                               ))))),
               Container(
-                  padding: const EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(8),
                   child: Center(
                       child: Material(
                           child: InkWell(
@@ -402,7 +381,7 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                     builder: (context) => const ServiceFrame(
                                         titleCategory: 'Ресницы/брови',
                                         subCategory:
-                                            'SubCategory'), // Переход к фрейму 1.6_6
+                                            'SubCategory6'), // Переход к фрейму 1.6_6
                                   ),
                                 );
                               },
@@ -412,6 +391,7 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                       child: Container(
                                           decoration: BoxDecoration(
                                             image: const DecorationImage(
+                                                fit: BoxFit.contain,
                                                 image: AssetImage(
                                                     'assets/icons/categories/6_lashes_brows.png')),
                                             borderRadius:
@@ -453,7 +433,7 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                 ],
                               ))))),
               Container(
-                  padding: const EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(8),
                   child: Center(
                       child: Material(
                           child: InkWell(
@@ -464,7 +444,7 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                     builder: (context) => const ServiceFrame(
                                         titleCategory: 'Пирсинг',
                                         subCategory:
-                                            'SubCategory'), // Переход к фрейму 1.6_7
+                                            'SubCategory7'), // Переход к фрейму 1.6_7
                                   ),
                                 );
                               },
@@ -474,6 +454,7 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                       child: Container(
                                           decoration: BoxDecoration(
                                             image: const DecorationImage(
+                                                fit: BoxFit.contain,
                                                 image: AssetImage(
                                                     'assets/icons/categories/7_piercing.png')),
                                             borderRadius:
@@ -515,7 +496,7 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                 ],
                               ))))),
               Container(
-                  padding: const EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(8),
                   child: Center(
                       child: Material(
                           child: InkWell(
@@ -526,7 +507,7 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                     builder: (context) => const ServiceFrame(
                                         titleCategory: 'Эпиляция и депиляция',
                                         subCategory:
-                                            'SubCategory'), // Переход к фрейму 1.6_8
+                                            'SubCategory8'), // Переход к фрейму 1.6_8
                                   ),
                                 );
                               },
@@ -536,6 +517,7 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                       child: Container(
                                           decoration: BoxDecoration(
                                             image: const DecorationImage(
+                                                fit: BoxFit.contain,
                                                 image: AssetImage(
                                                     'assets/icons/categories/8_epilation.png')),
                                             borderRadius:
@@ -577,7 +559,7 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                 ],
                               ))))),
               Container(
-                  padding: const EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(8),
                   child: Center(
                       child: Material(
                           child: InkWell(
@@ -588,7 +570,7 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                     builder: (context) => const ServiceFrame(
                                         titleCategory: 'Массаж',
                                         subCategory:
-                                            'SubCategory'), // Переход к фрейму 1.6_9
+                                            'SubCategory9'), // Переход к фрейму 1.6_9
                                   ),
                                 );
                               },
@@ -598,6 +580,7 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                       child: Container(
                                           decoration: BoxDecoration(
                                             image: const DecorationImage(
+                                                fit: BoxFit.contain,
                                                 image: AssetImage(
                                                     'assets/icons/categories/9_massage.png')),
                                             borderRadius:
@@ -639,7 +622,7 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                 ],
                               ))))),
               Container(
-                  padding: const EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(8),
                   child: Center(
                       child: Material(
                           child: InkWell(
@@ -650,7 +633,7 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                     builder: (context) => const ServiceFrame(
                                         titleCategory: 'Аппаратная',
                                         subCategory:
-                                            'SubCategory'), // Переход к фрейму 1.6_10
+                                            'SubCategory10'), // Переход к фрейму 1.6_10
                                   ),
                                 );
                               },
@@ -660,6 +643,7 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                       child: Container(
                                           decoration: BoxDecoration(
                                             image: const DecorationImage(
+                                                fit: BoxFit.contain,
                                                 image: AssetImage(
                                                     'assets/icons/categories/10_apparate.png')),
                                             borderRadius:
@@ -701,7 +685,7 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                 ],
                               ))))),
               Container(
-                  padding: const EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(8),
                   child: Center(
                       child: Material(
                           child: InkWell(
@@ -712,7 +696,7 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                     builder: (context) => const ServiceFrame(
                                         titleCategory: 'Тату',
                                         subCategory:
-                                            'SubCategory'), // Переход к фрейму 1.6_11
+                                            'SubCategory11'), // Переход к фрейму 1.6_11
                                   ),
                                 );
                               },
@@ -722,6 +706,7 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                       child: Container(
                                           decoration: BoxDecoration(
                                             image: const DecorationImage(
+                                                fit: BoxFit.contain,
                                                 image: AssetImage(
                                                     'assets/icons/categories/11_tattoo.png')),
                                             borderRadius:
@@ -749,6 +734,67 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                                                       bottom: 15),
                                                   child: Text(
                                                     'Тату',
+                                                    style: TextStyle(
+                                                      color: Color.fromRGBO(
+                                                          255, 255, 255, 1),
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                      fontSize: 18,
+                                                      fontFamily: 'Futura',
+                                                    ),
+                                                  ),
+                                                ),
+                                              ))))
+                                ],
+                              ))))),
+              Container(
+                  padding: const EdgeInsets.all(8),
+                  child: Center(
+                      child: Material(
+                          child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const UsualUserProfile(), // Тестовый переход к профилю 1.5.1
+                                  ),
+                                );
+                              },
+                              child: Column(
+                                children: [
+                                  Expanded(
+                                      child: Container(
+                                          decoration: BoxDecoration(
+                                            image: const DecorationImage(
+                                                fit: BoxFit.contain,
+                                                image: AssetImage(
+                                                    'assets/icons/arrow_test.png')),
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                          ),
+                                          child: Container(
+                                              decoration: BoxDecoration(
+                                                gradient: LinearGradient(
+                                                  begin: Alignment.bottomRight,
+                                                  colors: [
+                                                    Colors.black
+                                                        .withOpacity(.7),
+                                                    Colors.black.withOpacity(0),
+                                                  ],
+                                                  stops: const [0.2, 0.9],
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(20),
+                                              ),
+                                              child: const Align(
+                                                alignment: AlignmentDirectional
+                                                    .bottomCenter,
+                                                child: Padding(
+                                                  padding: EdgeInsets.only(
+                                                      bottom: 15),
+                                                  child: Text(
+                                                    'TEST ROUTE',
                                                     style: TextStyle(
                                                       color: Color.fromRGBO(
                                                           255, 255, 255, 1),
@@ -812,19 +858,31 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
                     color: const Color.fromRGBO(227, 231, 244, 1),
                     width: 3,
                   )),
-              child: const SizedBox(
+              child: SizedBox(
                   width: 355,
                   height: 287,
-                  child: Align(
-                      alignment: AlignmentDirectional.center,
-                      child: Text(
-                        'Здесть что-то будет',
-                        style: TextStyle(
-                          color: Color.fromRGBO(16, 35, 100, 1),
-                          fontWeight: FontWeight.w500,
-                          fontSize: 18,
-                        ),
-                      )))),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Align(
+                        alignment: AlignmentDirectional.bottomStart,
+                        child: GestureDetector(
+                          child: const Text('Оставить отзыв',
+                              style: TextStyle(
+                                color: Color.fromRGBO(68, 90, 165, 1),
+                                fontWeight: FontWeight.w500,
+                                fontSize: 14,
+                              )),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const GetFeedback(), // Переход на страницу восстановления пароля
+                              ),
+                            );
+                          },
+                        )),
+                  ))),
           const SizedBox(height: 10),
         ]),
       ))),
@@ -832,32 +890,28 @@ class _MainFrameCategoryState extends State<MainFrameCategory> {
       bottomNavigationBar: SizedBox(
         height: 70,
         child: BottomNavigationBar(
+          selectedItemColor: const Color.fromRGBO(29, 58, 161, 1),
+          unselectedItemColor: const Color.fromRGBO(108, 130, 209, 1),
+          // showSelectedLabels: true,
+          showUnselectedLabels: true,
           selectedLabelStyle: const TextStyle(), //your text style
           unselectedLabelStyle: const TextStyle(),
           currentIndex: _selectedTab,
           items: const [
             BottomNavigationBarItem(
-              icon: Icon(
-                Icons.pending_actions_rounded,
-              ),
+              icon: ImageIcon(AssetImage("assets/icons/online_entry.png")),
               label: 'Онлайн запись',
             ),
             BottomNavigationBarItem(
-              icon: Icon(
-                Icons.thumb_up_off_alt_outlined,
-              ),
+              icon: ImageIcon(AssetImage("assets/icons/bonus.png")),
               label: 'Бонусы',
             ),
             BottomNavigationBarItem(
-              icon: Icon(
-                Icons.pie_chart,
-              ),
+              icon: ImageIcon(AssetImage("assets/icons/partners.png")),
               label: 'Партнеры',
             ),
             BottomNavigationBarItem(
-              icon: Icon(
-                Icons.person_pin,
-              ),
+              icon: ImageIcon(AssetImage("assets/icons/profile1.png")),
               label: 'Профиль',
             ),
           ],

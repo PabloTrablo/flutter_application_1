@@ -13,7 +13,7 @@ class RegistrateStp2 extends StatelessWidget {
           titleTextStyle: const TextStyle(
             color: Color.fromRGBO(16, 35, 100, 1),
             fontWeight: FontWeight.w600,
-            fontSize: 20,
+            fontSize: 18,
             fontFamily: 'Futura',
           ),
           elevation: 0,
@@ -69,8 +69,8 @@ class _TextContactDetails extends StatelessWidget {
       'Контактные данные',
       style: TextStyle(
         fontFamily: 'Futura',
-        fontWeight: FontWeight.w600,
-        fontSize: 20,
+        fontWeight: FontWeight.w500,
+        fontSize: 18,
         color: Color.fromRGBO(123, 133, 167, 1),
       ),
     );

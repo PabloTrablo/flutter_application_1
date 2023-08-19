@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../profile/master/1.7_choose_service.dart';
+import 'subcategories/1.7.1_subcategory_service.dart';
+
 // Фрейм 1.6 "При выборе услуги"
 
 class ServiceFrame extends StatelessWidget {
@@ -21,7 +24,7 @@ class ServiceFrame extends StatelessWidget {
           titleTextStyle: const TextStyle(
             color: Color.fromRGBO(16, 35, 100, 1),
             fontWeight: FontWeight.w600,
-            fontSize: 20,
+            fontSize: 18,
             fontFamily: 'Futura',
           ),
           elevation: 1,
@@ -61,11 +64,111 @@ class ServiceFrame extends StatelessWidget {
                       width: 140,
                       height: 200,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(10),
                         color: const Color.fromRGBO(227, 231, 244, 1),
                       ),
-                      child: const Center(
-                        child: Text('Master_x'),
+                      child: GestureDetector(
+                        child: Container(
+                            decoration: const BoxDecoration(
+                                image: DecorationImage(
+                              image: AssetImage('assets/images/master_1.png'),
+                              fit: BoxFit.contain,
+                            )),
+                            child: const Align(
+                              alignment: AlignmentDirectional.bottomStart,
+                              child: Padding(
+                                padding: EdgeInsets.only(left: 10, bottom: 30),
+                                child: Text(
+                                  'Master_X',
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(255, 255, 255, 1),
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 14,
+                                    fontFamily: 'Futura',
+                                  ),
+                                ),
+                              ),
+                            )),
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const SubcategorySaloons(),
+                              ));
+                        },
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.all(5),
+                      width: 140,
+                      height: 200,
+                      child: GestureDetector(
+                        child: Container(
+                            decoration: const BoxDecoration(
+                                image: DecorationImage(
+                              image: AssetImage('assets/images/master_2.png'),
+                              fit: BoxFit.contain,
+                            )),
+                            child: const Align(
+                              alignment: AlignmentDirectional.bottomStart,
+                              child: Padding(
+                                padding: EdgeInsets.only(left: 10, bottom: 30),
+                                child: Text(
+                                  'Master_Y',
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(255, 255, 255, 1),
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 14,
+                                    fontFamily: 'Futura',
+                                  ),
+                                ),
+                              ),
+                            )),
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const SelectMasterService(),
+                              ));
+                        },
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.all(5),
+                      width: 140,
+                      height: 200,
+                      child: GestureDetector(
+                        child: Container(
+                            decoration: const BoxDecoration(
+                                image: DecorationImage(
+                              image: AssetImage('assets/images/master_1.png'),
+                              fit: BoxFit.contain,
+                            )),
+                            child: const Align(
+                              alignment: AlignmentDirectional.bottomStart,
+                              child: Padding(
+                                padding: EdgeInsets.only(left: 10, bottom: 30),
+                                child: Text(
+                                  'Master_z',
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(255, 255, 255, 1),
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 14,
+                                    fontFamily: 'Futura',
+                                  ),
+                                ),
+                              ),
+                            )),
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const SelectMasterService(),
+                              ));
+                        },
                       ),
                     ),
                     Container(
@@ -73,31 +176,7 @@ class ServiceFrame extends StatelessWidget {
                       width: 140,
                       height: 200,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: const Color.fromRGBO(227, 231, 244, 1),
-                      ),
-                      child: const Center(
-                        child: Text('Master_y'),
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.all(5),
-                      width: 140,
-                      height: 200,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: const Color.fromRGBO(227, 231, 244, 1),
-                      ),
-                      child: const Center(
-                        child: Text('Master_z'),
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.all(5),
-                      width: 140,
-                      height: 200,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(10),
                         color: const Color.fromRGBO(227, 231, 244, 1),
                       ),
                       child: const Center(
@@ -108,11 +187,12 @@ class ServiceFrame extends StatelessWidget {
                 )),
             const SizedBox(height: 10),
             Padding(
-              padding: EdgeInsets.only(left: 5, top: 5, right: 5),
+              padding: const EdgeInsets.only(left: 5, top: 5, right: 5),
               child: Column(
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
                         padding: const EdgeInsets.only(left: 10),
@@ -154,8 +234,8 @@ class _Previousvisits extends StatelessWidget {
           'Вы ранее записывались',
           style: TextStyle(
             fontFamily: 'Futura',
-            fontWeight: FontWeight.w600,
-            fontSize: 20,
+            fontWeight: FontWeight.w500,
+            fontSize: 18,
             color: Color.fromRGBO(123, 133, 167, 1),
           ),
         ),
@@ -163,43 +243,3 @@ class _Previousvisits extends StatelessWidget {
     );
   }
 }
-
-
-
-
-// Row(
-          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //   children: [
-          //     Container(
-          //       padding: const EdgeInsets.only(left: 10),
-          //       height: 48,
-          //       width: 355,
-          //       child: const Text(
-          //           style: TextStyle(
-          //             fontFamily: 'Futura',
-          //             fontWeight: FontWeight.w500,
-          //             color: Color.fromRGBO(16, 35, 100, 1),
-          //           ),
-          //           'Sub_category_2'),
-          //     ),
-          //     const Icon(Icons.chevron_right_sharp),
-          //   ],
-          // ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //   children: [
-          //     Container(
-          //       padding: const EdgeInsets.only(left: 10),
-          //       height: 48,
-          //       width: 355,
-          //       child: const Text(
-          //           style: TextStyle(
-          //             fontFamily: 'Futura',
-          //             fontWeight: FontWeight.w500,
-          //             color: Color.fromRGBO(16, 35, 100, 1),
-          //           ),
-          //           'Sub_category_3'),
-          //     ),
-          //     const Icon(Icons.chevron_right_sharp),
-          //   ],
-          // ),

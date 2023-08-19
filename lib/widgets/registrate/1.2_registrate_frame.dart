@@ -21,7 +21,7 @@ class _RegistrateState extends State<Registrate> {
           titleTextStyle: const TextStyle(
             color: Color.fromRGBO(16, 35, 100, 1),
             fontWeight: FontWeight.w600,
-            fontSize: 20,
+            fontSize: 18,
             fontFamily: 'Futura',
           ),
           elevation: 0,
@@ -47,6 +47,7 @@ class _RegistrateState extends State<Registrate> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                SizedBox(height: 10),
                 _ChoiceAvatar(),
                 SizedBox(height: 20),
                 _TextUnderAvatar(), //  Надпись "Расскажите о себе"
@@ -59,7 +60,7 @@ class _RegistrateState extends State<Registrate> {
                 SizedBox(height: 10),
                 _EnterSurName(), //  Поле ввода - Отчество
                 SizedBox(height: 10),
-                _EnterBirthday(), //  Поле ввода - Дата рождения
+                EnterBirthday(), //  Поле ввода - Дата рождения
                 SizedBox(height: 160),
                 _ButtonLastStep(), // Кнопка - Следующий шаг
               ],
@@ -86,10 +87,14 @@ class _ChoiceAvatarState extends State<_ChoiceAvatar> {
       GestureDetector(
         // ignore: avoid_print
         onTap: () => print("image clicked"),
-        child: const CircleAvatar(
-          backgroundColor: Color.fromRGBO(230, 235, 255, 1),
+        child: CircleAvatar(
+          backgroundColor: const Color.fromRGBO(230, 235, 255, 1),
           radius: 50.0,
-          backgroundImage: ExactAssetImage('assets/icons/avatar_icon.png'),
+          // backgroundImage: ExactAssetImage('assets/icons/avatar_icon.png'),
+          child: Image.asset(
+            'assets/icons/avatar_icon1.png',
+            fit: BoxFit.contain,
+          ),
         ),
       ),
     ]);
@@ -258,13 +263,13 @@ class _EnterSurNameState extends State<_EnterSurName> {
 }
 
 // Функция поле ввода даты рождения
-class _EnterBirthday extends StatefulWidget {
-  const _EnterBirthday({Key? key}) : super(key: key);
+class EnterBirthday extends StatefulWidget {
+  const EnterBirthday({Key? key}) : super(key: key);
   @override
-  _EnterBirthdayState createState() => _EnterBirthdayState();
+  EnterBirthdayState createState() => EnterBirthdayState();
 }
 
-class _EnterBirthdayState extends State<_EnterBirthday> {
+class EnterBirthdayState extends State<EnterBirthday> {
   @override
   Widget build(BuildContext context) {
     return Container(
